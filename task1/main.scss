@@ -1,3 +1,102 @@
+@mixin clearfix() {
+    &:before,
+    &:after {
+        content: " "; // 1
+        display: table; // 2
+    }
+    &:after {
+        clear: both;
+    }
+}
+
+
 body {
-    background-color: antiquewhite;
+    background-color: #DDDEDF;
+    margin: 0;
+    h1, h2, h3 {
+        //margin: 0;
+    }
+}
+
+.header {
+    background-color: #323334;
+    .nav {
+        @include clearfix;
+        padding-right: 10px;
+        padding-left: 10px;
+        h1 {
+            color: #E41018;
+            display: inline-block;
+        }
+        > ul {
+            float: right;
+            @include clearfix;
+            li {
+                float: left;
+                padding-right: 40px;
+                a {
+                    color: white;
+                }
+            }
+        }
+    }
+}
+
+.content {
+    padding: 20px;
+}
+
+.article {
+    padding: 10px 20px;
+    background-color: white;
+    margin-bottom: 20px;
+
+    border-right: 2px solid #838485;
+    border-bottom: 2px solid #838485;
+    h3 {
+        color: #535454;
+    }
+
+    .describtion {
+        color: #DDDEDF;
+    }
+
+    .paragraph {
+        text-indent: 30px;
+    }
+
+}
+
+.sidebar {
+    background-color: white;
+
+    .title {
+        border-right: 4px solid #838485;
+    }
+}
+
+.footer {
+    padding: 30px 0;
+    color: white;
+    background-color: #000000;
+    text-align: center;
+}
+
+.table {
+    width: 100%;
+    border: 1px solid #CBCCCD;
+    border-collapse: collapse;
+
+    tr:last-child {
+        background-color: #CBCCCD;
+    }
+
+    tr th {
+        color: white;
+        background-color: black;
+    }
+
+    tr td,th{
+        border: 1px solid #E5E6E7;
+    }
 }
