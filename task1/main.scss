@@ -1,3 +1,58 @@
-body {
-    background-color: antiquewhite;
+//util
+@mixin clearfix() {
+    &:before,
+    &:after {
+        content: " "; // 1
+        display: table; // 2
+    }
+    &:after {
+        clear: both;
+    }
 }
+//-----------------------------
+
+body {
+    margin: 0;
+    background-color: #DDDEDF;
+
+    .header {
+        background-color: #323334;
+
+        a {
+            color: white;
+        }
+    }
+}
+
+.nav {
+    list-style: none;
+}
+
+.navbar {
+    position: relative;
+    border: 1px solid transparent;
+    padding: 20px 20px;
+    @include clearfix();
+
+    .navbar-collapse {
+        float: right;
+    }
+}
+
+
+.navbar-nav {
+    margin: 0;
+    @include clearfix();
+    li {
+        float: right;
+        padding-left: 20px;
+    }
+
+    > .active > a{
+        color: #838485;
+    }
+
+
+}
+
+
