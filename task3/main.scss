@@ -1,0 +1,37 @@
+@mixin clearfix() {
+  &:before,
+  &:after {
+    content: " "; // 1
+    display: table; // 2
+  }
+  &:after {
+    clear: both;
+  }
+}
+
+body{
+  padding: 20px;
+  border: 1px solid #999;
+  background-color: #eee;
+  @include clearfix();
+}
+
+.team {
+  width: 200px;
+  float: left;
+  margin: 0 20px;
+  background-color: white;
+}
+
+.content {
+  background-color: white;
+  margin-left: 240px;
+  margin-right: 160px;
+}
+
+.crew {
+  margin: 0 20px;
+  width: 120px;
+  float: right;
+  background-color: white;
+}
